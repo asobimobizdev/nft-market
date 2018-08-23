@@ -1,0 +1,45 @@
+{
+  "name": "nft-market",
+  "version": "1.0.0",
+  "description": "NFT Market",
+  "author": "justus@asobimo.com",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/asobicoin/nft-market"
+  },
+  "scripts": {
+    "compile": "truffle compile",
+    "flatten": "truffle-flattener contracts/NFTMarket.sol",
+    "lint": "run-p -lns lint:*:check",
+    "lint:eslint:check": "eslint --ext .js --ignore-path .gitignore .",
+    "lint:eslint:fix": "npm run lint:eslint:check -- --fix",
+    "lint:fix": "run-p -lns lint:*:fix",
+    "lint:prettier:base": "prettier '{*,**/*}.{md,js,json,yml,yaml}'",
+    "lint:prettier:check": "npm run lint:prettier:base -- --list-different",
+    "lint:prettier:fix": "npm run lint:prettier:base -- --write",
+    "lint:solium:check": "solium --dir contracts",
+    "lint:solium:fix": "npm run lint:solium:check -- --fix",
+    "lint:truffle:check": "truffle compile",
+    "test": "run-p -lns test:* lint:*:check",
+    "test:truffle": "truffle test"
+  },
+  "dependencies": {
+    "openzeppelin-solidity": "1.10.0"
+  },
+  "devDependencies": {
+    "assert-rejected": "^1.1.1",
+    "eslint": "^4.15.0",
+    "eslint-plugin-sort-imports-es6-autofix": "^0.3.0",
+    "eth-gas-reporter": "^0.1.9",
+    "npm-run-all": "^4.1.3",
+    "pre-commit": "^1.2.2",
+    "prettier": "1.14.0",
+    "solc": "0.4.24",
+    "solium": "^1.1.8",
+    "solium-plugin-zeppelin": "git+https://github.com/OpenZeppelin/solium-plugin-zeppelin.git#aec043c90d158210a6baa95b5247fa2dedd8775e",
+    "truffle": "^5.0.0-next.10",
+    "truffle-flattener": "1.2.5",
+    "web3-utils": "^1.0.0-beta.34"
+  }
+}

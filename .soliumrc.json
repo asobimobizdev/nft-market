@@ -1,0 +1,10 @@
+{
+  "extends": "solium:all",
+  "plugins": ["security", "zeppelin"],
+  "rules": {
+    "quotes": ["error", "double"],
+    "indentation": ["error", 4],
+    "max-len": ["warning", 79],
+    "zeppelin/no-unused-imports": ["warning"]
+  }
+}
