@@ -92,14 +92,21 @@ contract NFTMarket is ERC721Receiver {
 
     /**
      * @dev List a good using a ERC721 receiver hook
+     * @param _operator the caller of this function
      * @param _seller the good seller
      * @param _tokenId the good id to list
      * @param _data contains the pricing data as the first 32 bytes
      */
-    function onERC721Received(address _seller, uint256 _tokenId, bytes _data)
+    function onERC721Received(
+        address _operator,
+        address _seller,
+        uint256 _tokenId,
+        bytes _data
+        )
         public
         returns (bytes4)
         {
+        require(_operator == _seller, "Seller must be operator");
         uint256 _price = toUint256(_data);
 
         addListing(_seller, _tokenId, _price);
@@ -136,7 +143,11 @@ contract NFTMarket is ERC721Receiver {
       * @param _tokenId the token to add
       * @param _price the price
       */
-    function addListing(address _seller, uint256 _tokenId, uint256 _price)
+    function addListing(
+        address _seller,
+        uint256 _tokenId,
+        uint256 _price
+        )
         internal
         {
         require(_price > 0, "Price must be greater than zero");
