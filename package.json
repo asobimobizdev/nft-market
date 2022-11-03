@@ -39,7 +39,7 @@
     "solium": "^1.1.8",
     "solium-plugin-zeppelin": "git+https://github.com/OpenZeppelin/solium-plugin-zeppelin.git#aec043c90d158210a6baa95b5247fa2dedd8775e",
     "truffle": "^5.0.0-next.10",
-    "truffle-flattener": "1.2.5",
+    "truffle-flattener": "1.6.0",
     "web3-utils": "^1.0.0-beta.34"
   }
 }
